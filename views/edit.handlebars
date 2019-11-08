@@ -1,0 +1,92 @@
+<div class="edit-body">
+    <div class="container">
+        <a href="/">Return to main page</a>
+        <div class="about">
+            <h3>About</h3>
+            <form class="main-photo" action="/edit" method="post">
+                <label for="mainPhotoFile">Main photo</label>
+                <div class="blockimg clearfix">
+                    <div class="overlay" id="bigmainimage">
+                        <div class="overlay_container">
+                            <a href="#close">
+                                <img src={{about.mainphoto}} />
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#bigmainimage">
+                        <div class="img-box">
+                            <img src={{about.mainphoto}} alt="Main Photo">
+                        </div>
+                    </a>
+                </div>
+                <input type="file" name="mainPhotoFile">
+                <button type="submit">Save</button>
+            </form>
+            <form class="about-form" action="index.html" method="post">
+                <label>About</label>
+                <div class="about-form-row">
+                    <label for="about-name">Name</label>
+                    <textarea name="about-name">{{about.name}}</textarea>
+                </div>
+                <div class="about-form-row">
+                    <label for="about-additional">Additional</label>
+                    <textarea name="about-additional">{{about.additional}}</textarea>
+                </div>
+                <div class="about-form-row">
+                    <label for="about-description">Description</label>
+                    <textarea name="about-description">{{about.description}}</textarea>
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+        <div class="photos">
+            <h3>Photos</h3>
+            <ul>
+                {{#each photos}}
+                    <li class="clearfix">
+                        <div class="blockimg">
+                            <div class="overlay" id="bigphoto{{@index}}">
+                                <div class="overlay_container">
+                                    <a href="#close">
+                                        <img src={{this}} />
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#bigphoto{{@index}}">
+                                <div class="img-box">
+                                    <img class="photo" src={{this}} alt="Photo">
+                                </div>
+                            </a>
+                        </div>
+                        <button type="button" name="deletePhoto{{@index}}">Delete</button>
+                    </li>
+                {{/each}}
+                <li>
+                    <form class="add-photo" action="index.html" method="post">
+                        <label>Add photo</label>
+                        <input type="file" name="mainPhotoFile">
+                        <button type="submit">Save</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <h3>Contacts</h3>
+            <ul>
+                {{#each contacts}}
+                    <li class="contact">
+                        {{this}}
+                        <button type="button" name="deleteContact{{@index}}">Delete</button>
+                    </li>
+                {{/each}}
+                <li class="contact">
+                    <input type="text" name="addContactText">
+                    <button type="button" name="addContact">Add</button>
+                </li>
+            </ul>
+        </div>
+        <div class="settings">
+            <h1>TODO</h1>
+        </div>
+    </div>
+</div>

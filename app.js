@@ -12,8 +12,13 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
     res.render('index', jsonData);
+});
+
+app.get('/edit', function(req, res) {
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    res.render('edit', jsonData);
 });
 
 app.use(function(req, res) {

@@ -82,12 +82,12 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.blokimg {
+.blockimg {
     position: relative;
 }
 
@@ -160,11 +160,6 @@ li {
     margin: 25px 0px 0px 25px;
 }
 
-.photos-box .img-box img {
-    width: 200px;
-    height: 200px;
-}
-
 .photos-box ul {
     margin: 0;
     padding: 0;
@@ -189,4 +184,46 @@ li {
     background-color: #00ff89;
     font-size: 18px;
     padding: 51px 40px;
+}
+
+.edit-body {
+    text-align: center;
+}
+
+.edit-body .container {
+    width: 80%;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.edit-body .img-box {
+    width: 100px;
+    height: 100px;
+}
+
+.edit-body .about, .edit-body .photos, .edit-body .contacts, .edit-body .settings {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px #d8d8d8;
+    padding: 10px;
+    margin: 10px;
+}
+
+.edit-body .about-form .about-form-row label{
+    display: table-row;
+}
+
+.edit-body .about-form .about-form-row {
+    width: 100%;
+}
+
+textarea {
+    margin: 10px;
+    resize: none;
+    width: 50%;
+    min-width: 200px;
+    font-family: inherit;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: 0 0 3px 0 #d8d8d8;
 }
