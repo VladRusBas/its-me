@@ -1,0 +1,10 @@
+{
+    "about": {
+        "mainphoto": "img/mainphoto.jpg",
+        "name": "Vladislav Basok",
+        "additional": "1999, hello blyat",
+        "description": "Just a cool guy afjdklsa; gdfgdfg gfd gafs hgfdhdfgh adfsdafas and some another stuff"
+    },
+    "photos": ["img/photo1.png", "img/photo2.png", "img/photo3.png", "img/photo4.jpg"],
+    "contacts": ["example@mail.com", "+7(228)14-48-420", "vk.com/basokvlad"]
+}

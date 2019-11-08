@@ -1,0 +1,92 @@
+<header class="clearfix">
+    <div class="container">
+        <div class="menuskived">
+            <nav>
+                <ul class="menu">
+                    <li><a href="#anchor-home">IT'S ME!</a></li>
+                    <li><a href="#anchor-photos">PHOTOS</a></li>
+                    <li><a href="#anchor-contacts">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<section class="clearfix">
+    <div class="container">
+        <div id="anchor-home" class="home">
+            <div class="blokimg">
+                <div class="overlay" id="bigmainimage">
+                    <div class="overlay_container">
+                        <a href="#close">
+                            <img src={{about.mainphoto}} />
+                        </a>
+                    </div>
+                </div>
+                <a href="#bigmainimage">
+                    <div class="img-box">
+                        <img class="main-photo" src={{about.mainphoto}} alt="Main Photo">
+                    </div>
+                </a>
+            </div>
+            <div class="about">
+                <div class="about-inner">
+                    <div class="name">{{about.name}}</div>
+                    <div class="additional">{{about.additional}}</div>
+                    <div class="description">{{about.description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="photos">
+            <div id="anchor-photos" class="head">PHOTOS</div>
+            <div class="photos-box clearfix">
+                <ul>
+                    {{#each photos}}
+                        <li>
+                            <div class="blokimg">
+                                <div class="overlay" id="bigphoto{{@index}}">
+                                    <div class="overlay_container">
+                                        <a href="#close">
+                                            <img src={{this}} />
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#bigphoto{{@index}}">
+                                    <div class="img-box">
+                                        <img class="photo" src={{this}} alt="Photo">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="contact-section">
+            <div id="anchor-contacts" class="head">CONTACT</div>
+            <div class="contact-box">
+                <ul class="contacts">
+                    {{#each contacts}}
+                        <li class="contact">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="foot">
+            2019
+        </div>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
