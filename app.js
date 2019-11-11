@@ -1,8 +1,11 @@
 var express = require("express");
 var handlebars = require('express-handlebars').create();
+var bodyParser = require('body-parser');
 var fs = require('fs');
 
 var app = express();
+
+var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -19,6 +22,20 @@ app.get('/', function(req, res) {
 app.get('/edit', function(req, res) {
     var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
     res.render('edit', jsonData);
+});
+
+app.post('/edit/about', urlencodedParser, function(req, res) {
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    jsonData.about.name = req.body.name;
+    jsonData.about.additional = req.body.additional;
+    jsonData.about.description = req.body.description;
+    var jsonStr = JSON.stringify(jsonData);
+    fs.writeFile('data.json', jsonStr, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    res.json(jsonData);
 });
 
 app.use(function(req, res) {

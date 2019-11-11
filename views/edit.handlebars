@@ -3,7 +3,7 @@
         <a href="/">Return to main page</a>
         <div class="about">
             <h3>About</h3>
-            <form class="main-photo" action="/edit" method="post">
+            <form>
                 <label for="mainPhotoFile">Main photo</label>
                 <div class="blockimg clearfix">
                     <div class="overlay" id="bigmainimage">
@@ -20,23 +20,23 @@
                     </a>
                 </div>
                 <input type="file" name="mainPhotoFile">
-                <button type="submit">Save</button>
+                <button id="save-photo" >Save</button>
             </form>
-            <form class="about-form" action="index.html" method="post">
+            <form>
                 <label>About</label>
                 <div class="about-form-row">
                     <label for="about-name">Name</label>
-                    <textarea name="about-name">{{about.name}}</textarea>
+                    <textarea id="about-name">{{about.name}}</textarea>
                 </div>
                 <div class="about-form-row">
                     <label for="about-additional">Additional</label>
-                    <textarea name="about-additional">{{about.additional}}</textarea>
+                    <textarea id="about-additional">{{about.additional}}</textarea>
                 </div>
                 <div class="about-form-row">
                     <label for="about-description">Description</label>
-                    <textarea name="about-description">{{about.description}}</textarea>
+                    <textarea id="about-description">{{about.description}}</textarea>
                 </div>
-                <button type="submit">Save</button>
+                <button id="save-about">Save</button>
             </form>
         </div>
         <div class="photos">
@@ -62,7 +62,7 @@
                     </li>
                 {{/each}}
                 <li>
-                    <form class="add-photo" action="index.html" method="post">
+                    <form class="add-photo" method="post">
                         <label>Add photo</label>
                         <input type="file" name="mainPhotoFile">
                         <button type="submit">Save</button>
@@ -90,3 +90,5 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/edit.js"></script>
