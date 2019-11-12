@@ -26,15 +26,15 @@
                 <label>About</label>
                 <div class="about-form-row">
                     <label for="about-name">Name</label>
-                    <textarea id="about-name">{{about.name}}</textarea>
+                    <textarea id="about-name" autocomplete="off">{{about.name}}</textarea>
                 </div>
                 <div class="about-form-row">
                     <label for="about-additional">Additional</label>
-                    <textarea id="about-additional">{{about.additional}}</textarea>
+                    <textarea id="about-additional" autocomplete="off">{{about.additional}}</textarea>
                 </div>
                 <div class="about-form-row">
                     <label for="about-description">Description</label>
-                    <textarea id="about-description">{{about.description}}</textarea>
+                    <textarea id="about-description" autocomplete="off">{{about.description}}</textarea>
                 </div>
                 <button id="save-about">Save</button>
             </form>
@@ -64,7 +64,7 @@
                 <li>
                     <form class="add-photo" method="post">
                         <label>Add photo</label>
-                        <input type="file" name="mainPhotoFile">
+                        <input type="file" name="mainPhotoFile" autocomplete="off">
                         <button type="submit">Save</button>
                     </form>
                 </li>
@@ -72,16 +72,16 @@
         </div>
         <div class="contacts">
             <h3>Contacts</h3>
-            <ul>
+            <ul class="contact-list">
                 {{#each contacts}}
                     <li class="contact">
                         {{this}}
-                        <button type="button" name="deleteContact{{@index}}">Delete</button>
+                        <button type="button" name="deleteContact-{{@index}}">Delete</button>
                     </li>
                 {{/each}}
                 <li class="contact">
-                    <input type="text" name="addContactText">
-                    <button type="button" name="addContact">Add</button>
+                    <input type="text" id="addContactText" autocomplete="off">
+                    <button type="button" id="addContact">Add</button>
                 </li>
             </ul>
         </div>

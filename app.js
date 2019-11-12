@@ -38,6 +38,31 @@ app.post('/edit/about', urlencodedParser, function(req, res) {
     res.json(jsonData);
 });
 
+app.post('/edit/contacts', urlencodedParser, function(req, res) {
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    jsonData.contacts.push(req.body.contact);
+    var jsonStr = JSON.stringify(jsonData);
+    fs.writeFile('data.json', jsonStr, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    res.json(jsonData);
+});
+
+app.delete('/edit/contacts/:index', function(req, res) {
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    jsonData.contacts.splice(req.params.index, 1);
+    console.log(req.params.index);
+    var jsonStr = JSON.stringify(jsonData);
+    fs.writeFile('data.json', jsonStr, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    res.json({index: req.params.index});
+})
+
 app.use(function(req, res) {
     res.status(404);
     res.render('404');
