@@ -113,6 +113,20 @@ app.delete('/edit/photos/:index', function(req, res) {
     });
 });
 
+app.post('/edit/mainphoto', urlencodedParser, function(req, res) {
+    var jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+    jsonData.about.mainphoto = 'img/' + req.body.index;
+    var jsonStr = JSON.stringify(jsonData);
+    fs.writeFile('data.json', jsonStr, function(err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+    res.json({
+        index: req.body.index
+    });
+});
+
 app.use(function(req, res) {
     res.status(404);
     res.render('404');

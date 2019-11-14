@@ -3,9 +3,8 @@
         <a href="/">Return to main page</a>
         <div class="about">
             <h3>About</h3>
-            <form ref='mainphotoForm' id='mainphotoForm' method='post' encType="multipart/form-data">
                 <label for="mainPhotoFile">Main photo</label>
-                <div class="blockimg clearfix">
+                <div id="main-photo" class="blockimg clearfix">
                     <div class="overlay" id="bigmainimage">
                         <div class="overlay_container">
                             <a href="#close">
@@ -19,9 +18,21 @@
                         </div>
                     </a>
                 </div>
-                <input type="file" name="mainPhotoFile" autocomplete="off">
-                <button >Save</button>
-            </form>
+                <button type="button" id="change-main-photo">Change</button>
+                <div class="choose-photo-overlay">
+                    <div class="choose-photo-overlay-container">
+                        <div class="choose-photo-overlay-container-inner">
+                            {{#each photos}}
+                            <button type="button" name="choose-photo-{{this}}">
+                                <div class="img-box">
+                                    <img class="photo" src={{this}} alt="Photo">
+                                </div>
+                            </button>
+                            {{/each}}
+                        </div>
+                        <button type="button" id="close-choose-photo-overlay">X</button>
+                    </div>
+                </div>
             <form>
                 <label>About</label>
                 <div class="about-form-row">

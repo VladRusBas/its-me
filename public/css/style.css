@@ -227,3 +227,52 @@ textarea {
     border-style: none;
     box-shadow: 0 0 3px 0 #d8d8d8;
 }
+
+.choose-photo-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.choose-photo-overlay-container {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #3b3939;
+}
+
+.choose-photo-overlay-container button {
+    padding: 5px;
+    border: none;
+    background: none;
+    border-radius: 5px;
+}
+
+.choose-photo-overlay-container button .img-box{
+    margin: 0;
+}
+
+.choose-photo-overlay-container button:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.choose-photo-overlay-container-inner {
+    margin: 30px;
+    float: left;
+    text-align: center;
+}
+
+#close-choose-photo-overlay {
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    position: absolute;
+}

@@ -74,12 +74,10 @@ $(document).ready(function() {
             event.preventDefault();
             return;
         }
-        
         $('#add-photo').submit();
     });
 
     $('button[name|=deletePhoto]').click(function() {
-
         var index = $(this).prop('name').split('/')[1];
         var indexData = {
             index: index
@@ -92,5 +90,29 @@ $(document).ready(function() {
                 $('button[name="deletePhoto-img/' + data.index + '"]').parent().remove();
             }
         });
+    });
+
+    $('#change-main-photo').click(function() {
+        $('.choose-photo-overlay').css('display', 'block');
+    });
+
+    $('#close-choose-photo-overlay').click(function() {
+        $('.choose-photo-overlay').css('display', 'none');
+    });
+
+    $('button[name|=choose-photo]').click(function() {
+        var index = $(this).prop('name').split('/')[1];
+        var indexData = {
+            index: index
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/edit/mainphoto',
+            data: indexData,
+            success: function(data) {
+                $('#main-photo img').prop('src', 'img/' + data.index);
+            },
+        });
+        $('.choose-photo-overlay').css('display', 'none');
     });
 });
