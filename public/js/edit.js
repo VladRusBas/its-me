@@ -60,4 +60,37 @@ $(document).ready(function() {
     $('#addContact').click(addContactFunc);
 
     $('button[name|="deleteContact"]').click(deleteContactFunc);
+
+    $('#save-photo').click(function(event) {
+        event.preventDefault();
+        var fileName = $('input[name|="photoFile"]').val();
+        if (!fileName) {
+            alert('there is no file');
+            event.preventDefault();
+            return;
+        }
+        if (!'jpg png jpeg gif bmp'.includes(fileName.split('.')[fileName.split('.').length - 1].toLowerCase())) {
+            alert('file type is not allowed');
+            event.preventDefault();
+            return;
+        }
+        
+        $('#add-photo').submit();
+    });
+
+    $('button[name|=deletePhoto]').click(function() {
+
+        var index = $(this).prop('name').split('/')[1];
+        var indexData = {
+            index: index
+        };
+        $.ajax({
+            type: 'DELETE',
+            url: '/edit/photos/' + index,
+            data: indexData,
+            success: function(data) {
+                $('button[name="deletePhoto-img/' + data.index + '"]').parent().remove();
+            }
+        });
+    });
 });
